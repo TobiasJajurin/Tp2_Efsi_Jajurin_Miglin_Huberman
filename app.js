@@ -1,8 +1,11 @@
 let listaTareas = document.getElementById("listaTareas");
 let tareas = document.getElementById("Tareas");
 let boton = document.getElementById("Boton");
+let botonEliminar = document.getElementById("BotonEliminar")
 
 boton.addEventListener("click", EnviarTarea);  
+botonEliminar.addEventListener("click", EliminarTarea);  
+
 
 function EnviarTarea(event) {
     event.preventDefault();  
@@ -15,10 +18,11 @@ function EnviarTarea(event) {
         listaTareas.appendChild(li);
         tareas.value = "";  
     }
-    else
-    {
-        DisableButton()
-    }
+    
+}
+function EliminarTarea ()
+{
+    listaTareas.remove()
 }
 
 function DisableButton() {
