@@ -30,7 +30,8 @@ function EnviarTarea(id = new Date().toLocaleString(), value = tareas.value) {
         listaTareas.removeChild(li);
       }
     });
-
+    
+      
 
 
   } else {
