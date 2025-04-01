@@ -3,12 +3,10 @@ let tareas = document.getElementById("Tareas");
 let boton = document.getElementById("Boton");
 let botonEliminar = document.getElementById("BotonEliminar");
 boton.addEventListener("click", () => EnviarTarea());
-botonBorrar.addEventListener("click", EliminarTarea);
 
 function EnviarTarea(id = new Date().toLocaleString(), value = tareas.value) {
   if (value.trim() !== "") {
     AbleButton();
-    new Date();
     let li = document.createElement("li");
     let botonBorrar = document.createElement("button");
     const checkbox = document.createElement("input");
@@ -23,6 +21,7 @@ function EnviarTarea(id = new Date().toLocaleString(), value = tareas.value) {
 
     botonBorrar.addEventListener("click", () => {
       listaTareas.removeChild(li);
+      localStorage.removeItem(id)
     });
 
     botonEliminar.addEventListener("click", () => {
@@ -31,6 +30,9 @@ function EnviarTarea(id = new Date().toLocaleString(), value = tareas.value) {
         listaTareas.removeChild(li);
       }
     });
+
+
+
   } else {
     DisableButton();
   }
@@ -44,7 +46,7 @@ function AbleButton() {
   boton.disabled = false;
 }
 
-// Traer los valores del localstorage
+
 for (let i = 0; i < localStorage.length; i++) {
   const key = localStorage.key(i);
   const value = localStorage.getItem(key);
