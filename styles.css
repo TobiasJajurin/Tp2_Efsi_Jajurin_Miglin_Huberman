@@ -183,3 +183,18 @@ ul#listaTareas li input[type="checkbox"] {
         font-size: 1em;
     }
 }
+
+/* Base style - show everything */
+body:has(#filtroTodas:checked) li.tarea {
+display: flex;
+}
+  
+/* Show only incomplete tasks */
+body:has(#filtroPendientes:checked) li.tarea:has(input[type="checkbox"]:checked) {
+display: none;
+}
+
+/* Show only completed tasks */
+body:has(#filtroCompletadas:checked) li.tarea:not(:has(input[type="checkbox"]:checked)) {
+display: none;
+}

@@ -12,12 +12,13 @@ function EnviarTarea(id = new Date().toLocaleString(), value = tareas.value) {
     let botonBorrar = document.createElement("button");
     const checkbox = document.createElement("input");
     checkbox.setAttribute("type", "checkbox");
-    checkbox.checked = (localStorage?.getItem(id)?.split(";")[1] ?? "false") !== "false";
+    checkbox.checked =
+      (localStorage?.getItem(id)?.split(";")[1] ?? "false") !== "false";
     botonBorrar.innerHTML = "Borrar";
 
     checkbox.addEventListener("change", () => {
       let valor = localStorage.getItem(id).split(";");
-      valor[1] = checkbox.checked;
+      valor[1] = checkbox.checked ? new Date().toLocaleString() : false;
       console.log(checkbox.checked, id);
       localStorage.setItem(id, valor.join(";"));
     });
@@ -61,4 +62,16 @@ for (let i = 0; i < localStorage.length; i++) {
   const key = localStorage.key(i);
   const value = localStorage.getItem(key);
   EnviarTarea(key, value);
+}
+
+function OrdenarPorFecha(listaTareas)
+{
+  let terminadaAntes = new Date().toLocaleString();
+
+
+  for (let i = 0; i < listaTareas.length; i++) {
+    if(listaTareas[i].Date < terminadaAntes){
+      terminadaAntes = listaTareas[i]
+    }
+  }
 }

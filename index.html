@@ -9,6 +9,17 @@
 <body>
     
     <form action="">
+        <ul>
+            <input type="radio" name="filtro" class="todas" id="filtroTodas" checked>
+            <label for="filtroTodas">Todas</label>
+            
+            <input type="radio" name="filtro" class="pendientes" id="filtroPendientes">
+            <label for="filtroPendientes">Pendientes</label>
+            
+            <input type="radio" name="filtro" class="completadas" id="filtroCompletadas">
+            <label for="filtroCompletadas">Completadas</label>
+          </ul>          
+
         <label for=""> Agregar Tareas </label>
         <input type="text" id="Tareas" onkeypress="AbleButton()">
         <button type="button" id="Boton">add task</button>
